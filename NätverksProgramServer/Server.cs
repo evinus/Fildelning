@@ -1,0 +1,173 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace NätverksProgramServer
+{
+    public partial class Server : Form
+    {
+
+        List<AnvändarKlienter> klienter = new List<AnvändarKlienter>();
+        TcpListener lyssnare;
+        IPAddress hostAdress;
+        List<int> tal = new List<int>();
+        List<byte> filData = new List<byte>();
+        public Server()
+        {
+            InitializeComponent();
+            string hostNamn = Dns.GetHostName();
+            lyssnare = new TcpListener(IPAddress.Any, 12345);
+            lyssnare.Start();
+            StartaLyssna();
+        }
+        public async void StartaLyssna()
+        {
+            try
+            {
+                // lyssnar efter inkommande klienter och sen starta lyssna funktioner på den klienten.
+                AnvändarKlienter nyklient = new AnvändarKlienter();
+                nyklient.Klient = await lyssnare.AcceptTcpClientAsync();
+                nyklient.Klient.NoDelay = false;
+
+
+                byte[] byteNamn = new byte[8];
+                await nyklient.Klient.GetStream().ReadAsync(byteNamn, 0, 8);
+                nyklient.Namn = Encoding.Unicode.GetString(byteNamn);
+                nyklient.ÄndraID(klienter.Count);
+
+                klienter.Add(nyklient);
+                tbxLogg.AppendText("\r\n"+ DateTime.Now.ToString("h:mm:ss tt") + ": " + (nyklient.Klient.Client.RemoteEndPoint as IPEndPoint).Address.ToString() + " Har anslutet");
+                Lyssna(nyklient);
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show( "\r\n"+ error.Message +" kunde inte lysssna", this.Text );
+                return;
+            }
+            StartaLyssna();
+        }
+        public async void Lyssna(AnvändarKlienter nyklient)
+        {
+            byte[] buffer;
+            byte[] nr = new byte[4];
+            byte[] namn = new byte[1024];
+            byte[] tal = new byte[4];
+            byte[] Meddelande = new byte[200];
+            try
+            {
+                //ser vilket tal som har skickats.   
+                await nyklient.Klient.GetStream().ReadAsync(tal, 0, 4);
+                int Tal = BitConverter.ToInt32(tal, 0);
+
+                if (Tal == 1)
+                {
+                    //läser in storleken på filen.
+                    await nyklient.Klient.GetStream().ReadAsync(nr, 0, 4);
+
+                    int filStorlek = BitConverter.ToInt32(nr, 0);
+                    tbxLogg.AppendText("\r\n har fått storleken " + filStorlek.ToString());
+
+                    buffer = new byte[filStorlek];
+                    int a = 0;
+                    //Läser in filen
+                    while (filStorlek > a)
+                    {
+                        a += await nyklient.Klient.GetStream().ReadAsync(buffer, a, filStorlek);
+                    }
+                    tbxLogg.AppendText("\r\n Ska börja skicka filen");
+
+                    //SKickar ut filen till alla klienter
+                    for (int i = 0; i < klienter.Count; i++)
+                    {
+                        //if (k == client) continue;
+                        await klienter[i].Klient.GetStream().WriteAsync(tal, 0, 4);
+                        await klienter[i].Klient.GetStream().WriteAsync(nr, 0, 4);
+                        await klienter[i].Klient.GetStream().WriteAsync(buffer, 0, filStorlek);
+
+                    }
+                }
+                if (Tal == 2) // tar emot meddelandet och skickar vidare det.
+                {
+                    await nyklient.Klient.GetStream().ReadAsync(Meddelande, 0, 200);
+
+                    for (int i = 0; i < klienter.Count; i++)
+                    {
+                        await klienter[i].Klient.GetStream().WriteAsync(tal, 0, 4);
+
+                        await klienter[i].Klient.GetStream().WriteAsync(Meddelande, 0, 200);
+                    }
+                }
+                if(Tal == 3)
+                {
+
+                }
+
+            }
+            catch (Exception error) // Om det blir fel tas klienten borts.
+            {
+                tbxLogg.AppendText("\r\n" + DateTime.Now.ToString("h:mm:ss tt") + error.Message);
+                if (nyklient.Klient.Connected == false) { klienter.Remove(nyklient); nyklient.Klient.Close(); return; }
+            }
+            Lyssna(nyklient);
+        }
+
+        private async void SkickaFil(byte[] buffer,byte[] filstorlek, byte[] namn,byte[] tal, int ID)
+        {
+            try
+            {
+                byte[] svar = new byte[1];
+                await klienter[ID].Klient.GetStream().WriteAsync(tal, 0, 4);
+
+                await klienter[ID].Klient.GetStream().WriteAsync(namn, 0, 10);
+
+                await klienter[ID].Klient.GetStream().WriteAsync(filstorlek, 0, 4);
+
+                await klienter[ID].Klient.GetStream().ReadAsync(svar, 0, 1);
+                bool bsvar = BitConverter.ToBoolean(svar, 0);
+                if (bsvar)
+                {
+                    int filtal = BitConverter.ToInt32(filstorlek, 0);
+                    await klienter[ID].Klient.GetStream().WriteAsync(buffer, 0, filtal);
+                }
+            }
+            catch(Exception error) { tbxLogg.AppendText("\r\n" + error.Message); }
+        }
+        private async void SkickaNyAnvändare(string namn, int id)
+        {
+            byte[] bnamn = new byte[8];
+            bnamn = Encoding.Unicode.GetBytes(namn);
+            //int namntal = Encoding.Unicode.GetByteCount(namn);
+            //byte[] btal = BitConverter.GetBytes(namntal);
+            byte[] definitionsTal = BitConverter.GetBytes(3);
+            byte[] bID = BitConverter.GetBytes(id);
+            try
+            {
+                for (int i = 0; i < klienter.Count; i++)
+                {
+                    await klienter[i].Klient.GetStream().WriteAsync(definitionsTal, 0, 4);
+                    //await klienter[i].Klient.GetStream().WriteAsync(btal, 0, 4);
+                    await klienter[i].Klient.GetStream().WriteAsync(bnamn, 0, 8);
+                    await klienter[i].Klient.GetStream().WriteAsync(bID, 0, 4);
+                }
+            }
+            catch(Exception error) { tbxLogg.AppendText("\r\n" + error.Message); }
+        }
+
+        private void Server_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            lyssnare.Stop();
+            foreach (AnvändarKlienter k in klienter)
+            {
+                k.Klient.Close();
+            }
+        } 
+    }
+}

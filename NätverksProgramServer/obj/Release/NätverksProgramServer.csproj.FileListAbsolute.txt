@@ -1,0 +1,9 @@
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\bin\Release\NätverksProgramServer.exe.config
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\bin\Release\NätverksProgramServer.exe
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\bin\Release\NätverksProgramServer.pdb
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Release\NätverksProgramServer.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Release\NätverksProgramServer.Properties.Resources.resources
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Release\NätverksProgramServer.Server.resources
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Release\NätverksProgramServer.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Release\NätverksProgramServer.exe
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Release\NätverksProgramServer.pdb

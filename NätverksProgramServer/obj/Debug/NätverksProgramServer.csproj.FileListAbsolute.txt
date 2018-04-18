@@ -1,0 +1,28 @@
+c:\users\daniel\documents\visual studio 2013\Projects\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe.config
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe.config
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe.config
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.pdb
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Properties.Resources.resources
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Server.resources
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.exe
+C:\Users\Daniel\Documents\Visual Studio 2013\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.pdb
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.exe
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.pdb
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.pdb
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Properties.Resources.resources
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Server.resources
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csproj.GenerateResource.Cache
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe.config
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.exe
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.pdb
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\bin\Debug\NätverksProgramServer.pdb
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csprojResolveAssemblyReference.cache
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Properties.Resources.resources
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Server.resources
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csproj.GenerateResource.Cache

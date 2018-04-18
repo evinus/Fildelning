@@ -1,0 +1,9 @@
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\bin\Release\NätverksKlient.exe.config
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\bin\Release\NätverksKlient.exe
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\bin\Release\NätverksKlient.pdb
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\obj\Release\NätverksKlient.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\obj\Release\NätverksKlient.Klient.resources
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\obj\Release\NätverksKlient.Properties.Resources.resources
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\obj\Release\NätverksKlient.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\obj\Release\NätverksKlient.exe
+C:\Users\Daniel\Documents\GitHub\skolan\NätverksProgramServer\NätverksKlient\obj\Release\NätverksKlient.pdb
