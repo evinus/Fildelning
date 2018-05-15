@@ -57,10 +57,10 @@ namespace NätverksProgramServer
         public async void Lyssna(AnvändarKlienter nyklient)
         {
             byte[] buffer;
-            byte[] nr = new byte[4];
-            byte[] namn = new byte[1024];
+            byte[] bytefilstorlek = new byte[4];
+            byte[] namn;
             byte[] tal = new byte[4];
-            byte[] Meddelande = new byte[200];
+            byte[] Meddelande;
             try
             {
                 //ser vilket tal som har skickats.   
@@ -69,28 +69,38 @@ namespace NätverksProgramServer
 
                 if (Tal == 1)
                 {
+                    int namnTalLängd;
+                    byte[] namnbytelängd = new byte[4];
+                    await nyklient.Klient.GetStream().ReadAsync(namnbytelängd, 0, 4);
+                    namnTalLängd = BitConverter.ToInt32(namnbytelängd, 0);
+                    namn = new byte[namnTalLängd];
+
+                    await nyklient.Klient.GetStream().ReadAsync(namn, 0, namnTalLängd);
+
                     //läser in storleken på filen.
-                    await nyklient.Klient.GetStream().ReadAsync(nr, 0, 4);
+                    await nyklient.Klient.GetStream().ReadAsync(bytefilstorlek, 0, 4);
 
-                    int filStorlek = BitConverter.ToInt32(nr, 0);
-                    tbxLogg.AppendText("\r\n har fått storleken " + filStorlek.ToString());
+                    int TalfilStorlek = BitConverter.ToInt32(bytefilstorlek, 0);
+                    tbxLogg.AppendText("\r\n har fått storleken " + TalfilStorlek.ToString());
 
-                    buffer = new byte[filStorlek];
+                    buffer = new byte[TalfilStorlek];
                     int a = 0;
                     //Läser in filen
-                    while (filStorlek > a)
+                    while (TalfilStorlek > a)
                     {
-                        a += await nyklient.Klient.GetStream().ReadAsync(buffer, a, filStorlek);
+                        a += await nyklient.Klient.GetStream().ReadAsync(buffer, a, TalfilStorlek);
                     }
                     tbxLogg.AppendText("\r\n Ska börja skicka filen");
 
                     //SKickar ut filen till alla klienter
                     for (int i = 0; i < klienter.Count; i++)
                     {
+                        SkickaFil(buffer, bytefilstorlek, namn, i);
+                        
                         //if (k == client) continue;
-                        await klienter[i].Klient.GetStream().WriteAsync(tal, 0, 4);
-                        await klienter[i].Klient.GetStream().WriteAsync(nr, 0, 4);
-                        await klienter[i].Klient.GetStream().WriteAsync(buffer, 0, filStorlek);
+                        //await klienter[i].Klient.GetStream().WriteAsync(tal, 0, 4);
+                        //await klienter[i].Klient.GetStream().WriteAsync(filstorlek, 0, 4);
+                        //await klienter[i].Klient.GetStream().WriteAsync(buffer, 0, filStorlek);
 
                     }
                 }
@@ -119,14 +129,18 @@ namespace NätverksProgramServer
             Lyssna(nyklient);
         }
 
-        private async void SkickaFil(byte[] buffer,byte[] filstorlek, byte[] namn,byte[] tal, int ID)
+        private async void SkickaFil(byte[] buffer,byte[] filstorlek, byte[] namn, int ID)
         {
+            byte[] tal = BitConverter.GetBytes(1);
+            int namnL = namn.Length;
             try
             {
                 byte[] svar = new byte[1];
                 await klienter[ID].Klient.GetStream().WriteAsync(tal, 0, 4);
 
-                await klienter[ID].Klient.GetStream().WriteAsync(namn, 0, 10);
+                await klienter[ID].Klient.GetStream().WriteAsync(BitConverter.GetBytes(namnL), 0, 4);
+
+                await klienter[ID].Klient.GetStream().WriteAsync(namn, 0, namnL);
 
                 await klienter[ID].Klient.GetStream().WriteAsync(filstorlek, 0, 4);
 

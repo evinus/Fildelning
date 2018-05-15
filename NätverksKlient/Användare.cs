@@ -23,6 +23,7 @@ public static class Användare
     public static int TypTal { get; set; }
     public static int FilStorlek { get; set; }
     public static string FilNamn { get; set; }
+    public static byte[] Fil { get; set; }
 
     static List<AnvändarKlienter> klienter = new List<AnvändarKlienter>();
 
@@ -113,6 +114,8 @@ public static class Användare
             {
                 antalMottgnaByte += await Klient.GetStream().ReadAsync(filbuffer, antalMottgnaByte, filstorlek);
             }
+
+            
         }
         catch(Exception error)
         { Console.WriteLine(error.Message); }
@@ -135,11 +138,18 @@ public static class Användare
             return;
         }
     }
-    public static async void SkickaFil(byte[] tal, byte[] namn, byte[] storlek, byte[] fildata)
+    /// <summary>
+    /// Skickar en fil till servern
+    /// </summar>
+    /// <param name="namn">namnet på filen i bytes.</param>
+    /// <param name="storlek">Storlek i bytes på filen</param>
+    /// <param name="fildata">Sjäva filens data i byte</param>
+    public static async void SkickaFil( byte[] namn, byte[] storlek, byte[] fildata)
     {
         
         if(Klient.Connected)
         {
+            byte[] tal = BitConverter.GetBytes(1);
             int namnL = namn.Length;
             try
             {

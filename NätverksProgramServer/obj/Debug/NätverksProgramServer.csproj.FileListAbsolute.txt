@@ -26,3 +26,6 @@ F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksPro
 F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Properties.Resources.resources
 F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.Server.resources
 F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksProgramServer\obj\Debug\NätverksProgramServer.csproj.GenerateResource.Cache
+C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe.config
+C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.exe
+C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.pdb
