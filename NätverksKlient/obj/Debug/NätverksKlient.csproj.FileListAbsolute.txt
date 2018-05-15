@@ -25,6 +25,3 @@ F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksPro
 F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksKlient\obj\Debug\NätverksKlient.Klient.resources
 F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksKlient\obj\Debug\NätverksKlient.Properties.Resources.resources
 F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\NätverksKlient\obj\Debug\NätverksKlient.csproj.GenerateResource.Cache
-F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\bin\Debug\NätverksKlient.exe.config
-F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.exe
-F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.pdb
