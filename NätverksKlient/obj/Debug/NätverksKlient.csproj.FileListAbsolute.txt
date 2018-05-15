@@ -28,3 +28,6 @@ F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksPro
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\bin\Debug\NätverksKlient.exe.config
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.exe
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.pdb
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\bin\Debug\NätverksKlient.exe.config
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.exe
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.pdb
