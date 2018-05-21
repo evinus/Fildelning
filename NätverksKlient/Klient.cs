@@ -202,14 +202,16 @@ namespace NätverksKlient
 
             
 
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    byte[] filData =File.ReadAllBytes(openFileDialog1.FileName);
-                    byte[] tal = BitConverter.GetBytes(1);
-                    byte[] nr = BitConverter.GetBytes(filData.Length);
-                    byte[] namn = Encoding.Unicode.GetBytes(openFileDialog1.FileName);
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                byte[] filData =File.ReadAllBytes(openFileDialog1.FileName);
+                byte[] tal = BitConverter.GetBytes(1);
+                byte[] storlek = BitConverter.GetBytes(filData.Length);
+                byte[] namn = Encoding.Unicode.GetBytes(openFileDialog1.FileName);
+                Användare.SkickaFil(namn, storlek, filData);
+                    
 
-                }
+            }
             
         }
 
