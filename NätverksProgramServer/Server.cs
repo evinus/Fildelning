@@ -14,12 +14,13 @@ namespace NätverksProgramServer
 {
     public partial class Server : Form
     {
-
+        #region Fält
         List<AnvändarKlienter> klienter = new List<AnvändarKlienter>();
         TcpListener lyssnare;
         IPAddress hostAdress;
         List<int> tal = new List<int>();
         List<byte> filData = new List<byte>();
+        #endregion
         public Server()
         {
             InitializeComponent();

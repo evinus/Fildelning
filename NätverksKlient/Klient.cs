@@ -51,11 +51,13 @@ namespace NätverksKlient
             Användare.Lyssna();
             if(Användare.TypTal ==1)
             {
-
                 byte[] buffer = null;
                 Användare.TaEmotFildata(buffer);
+
+
                 if (buffer != null)
                 {
+                    saveFileDialog1.FileName = Användare.FilNamn;
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         File.WriteAllBytes(saveFileDialog1.FileName, buffer);

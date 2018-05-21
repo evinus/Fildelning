@@ -52,19 +52,13 @@ public static class Användare
             byte[] talBesk = new byte[4];
             await Klient.GetStream().ReadAsync(talBesk, 0, 4);
             TypTal = BitConverter.ToInt32(talBesk, 0);
-            if(TypTal == 1)
-            {
-
-                TaEmotFildata(Fil);
-            }
         }
         
         catch
         { }
-        Lyssna();
     }
    
-    private static async void TaEmotMeddelande()
+    public static async void TaEmotMeddelande()
     {
         try
         {
@@ -77,7 +71,7 @@ public static class Användare
         catch (Exception error)
         { Console.WriteLine(error.Message); }
     }
-    private static async void TaEmotFildata(byte[] filbuffer)
+    public static async void TaEmotFildata(byte[] filbuffer)
     {
         byte[] filnamn = new byte[10];
         byte[] filstorlek = new byte[4];
@@ -109,7 +103,7 @@ public static class Användare
         catch(Exception error) { Console.WriteLine(error.Message); }
     }
 
-    private static async void TaEmotFil(byte[] filbuffer, int filstorlek)
+    public static async void TaEmotFil(byte[] filbuffer, int filstorlek)
     {
         try
         {
