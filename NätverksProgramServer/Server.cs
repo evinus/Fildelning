@@ -61,7 +61,7 @@ namespace NätverksProgramServer
             byte[] bytefilstorlek = new byte[4];
             byte[] namn;
             byte[] tal = new byte[4];
-            byte[] Meddelande;
+            
             try
             {
                 //ser vilket tal som har skickats.   
@@ -107,13 +107,19 @@ namespace NätverksProgramServer
                 }
                 if (Tal == 2) // tar emot meddelandet och skickar vidare det.
                 {
-                    await nyklient.Klient.GetStream().ReadAsync(Meddelande, 0, 200);
+                    
+                    byte[] medelandelängdByte = new byte[4];
+                    await nyklient.Klient.GetStream().ReadAsync(medelandelängdByte, 0, 4);
+
+                    int längdMedelade = BitConverter.ToInt32(medelandelängdByte, 0);
+                    byte[] Meddelande = new byte[längdMedelade];
+                    await nyklient.Klient.GetStream().ReadAsync(Meddelande, 0, längdMedelade);
 
                     for (int i = 0; i < klienter.Count; i++)
                     {
                         await klienter[i].Klient.GetStream().WriteAsync(tal, 0, 4);
-
-                        await klienter[i].Klient.GetStream().WriteAsync(Meddelande, 0, 200);
+                        await klienter[i].Klient.GetStream().WriteAsync(medelandelängdByte, 0, 4);
+                        await klienter[i].Klient.GetStream().WriteAsync(Meddelande, 0,längdMedelade);
                     }
                 }
                 if(Tal == 3)
@@ -157,19 +163,20 @@ namespace NätverksProgramServer
         }
         private async void SkickaNyAnvändare(string namn, int id)
         {
-            byte[] bnamn = new byte[8];
-            bnamn = Encoding.Unicode.GetBytes(namn);
+            byte[] bnamn =Encoding.Unicode.GetBytes(namn);  
             //int namntal = Encoding.Unicode.GetByteCount(namn);
             //byte[] btal = BitConverter.GetBytes(namntal);
             byte[] definitionsTal = BitConverter.GetBytes(3);
             byte[] bID = BitConverter.GetBytes(id);
+            int namnLängd = bnamn.Length;
             try
             {
                 for (int i = 0; i < klienter.Count; i++)
                 {
                     await klienter[i].Klient.GetStream().WriteAsync(definitionsTal, 0, 4);
                     //await klienter[i].Klient.GetStream().WriteAsync(btal, 0, 4);
-                    await klienter[i].Klient.GetStream().WriteAsync(bnamn, 0, 8);
+                    await klienter[i].Klient.GetStream().WriteAsync(BitConverter.GetBytes(namnLängd),0, 4);
+                    await klienter[i].Klient.GetStream().WriteAsync(bnamn, 0, namnLängd);
                     await klienter[i].Klient.GetStream().WriteAsync(bID, 0, 4);
                 }
             }

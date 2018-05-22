@@ -225,12 +225,15 @@ namespace NätverksKlient
         private void btnTaEmot_Click(object sender, EventArgs e)
         {
             btnTaEmot.Enabled = false;
+            Användare.Lyssna();
             //Lyssna(); 
         }
 
         private void btnSkicka_Click(object sender, EventArgs e)
         {
             //Skickameddelande(tbxMeddelande.Text);
+            Användare.Skickameddelande(tbxMeddelande.Text);
+            tbxMeddelande.Text = "";
         }
 
         private void Klient_KeyUp(object sender, KeyEventArgs e)
@@ -239,7 +242,9 @@ namespace NätverksKlient
             if(e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = false;
-               // Skickameddelande(tbxMeddelande.Text);
+                // Skickameddelande(tbxMeddelande.Text);
+                Användare.Skickameddelande(tbxMeddelande.Text);
+                tbxMeddelande.Text = "";
             }
         }
 

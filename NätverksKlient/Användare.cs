@@ -23,7 +23,6 @@ public static class Användare
     public static int TypTal { get; set; }
     public static int FilStorlek { get; set; }
     public static string FilNamn { get; set; }
-    public static byte[] Fil { get; set; }
 
     static List<AnvändarKlienter> klienter = new List<AnvändarKlienter>();
 
@@ -52,6 +51,8 @@ public static class Användare
             byte[] talBesk = new byte[4];
             await Klient.GetStream().ReadAsync(talBesk, 0, 4);
             TypTal = BitConverter.ToInt32(talBesk, 0);
+
+           
         }
         
         catch
@@ -129,6 +130,8 @@ public static class Användare
             await Klient.GetStream().WriteAsync(tal, 0, 4);
             //gör om meddelandet till bytes och skickar det
             byte[] medel = Encoding.Unicode.GetBytes(meddelande);
+            int längdMedelande = medel.Length;
+            await Klient.GetStream().WriteAsync(BitConverter.GetBytes(längdMedelande), 0, 4);
             await Klient.GetStream().WriteAsync(medel, 0, medel.Length);
 
         }
@@ -169,10 +172,13 @@ public static class Användare
 
     public static async void NyAnvändare( )
     {
-        byte[] bnamn = new byte[8];
+        int namnLängd;
+        byte[] namnbyteLängd = new byte[4];
         byte[] bID = new byte[4];
-
-        await Klient.GetStream().ReadAsync(bnamn, 0, 8);
+        await Klient.GetStream().ReadAsync(namnbyteLängd, 0, 4);
+        namnLängd = BitConverter.ToInt32(namnbyteLängd, 0);
+        byte[] bnamn = new byte[namnLängd];
+        await Klient.GetStream().ReadAsync(bnamn, 0, namnLängd);
         await Klient.GetStream().ReadAsync(bID, 0, 4);
 
         AnvändarKlienter nyklient = new AnvändarKlienter(BitConverter.ToInt32(bID, 0));
