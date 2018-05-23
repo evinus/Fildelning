@@ -39,8 +39,12 @@ namespace NätverksProgramServer
                 nyklient.Klient.NoDelay = false;
 
 
-                byte[] byteNamn = new byte[8];
-                await nyklient.Klient.GetStream().ReadAsync(byteNamn, 0, 8);
+                byte[] byteNamnLängd = new byte[4];
+                await nyklient.Klient.GetStream().ReadAsync(byteNamnLängd, 0, 4);
+
+                int namnLängd = BitConverter.ToInt32(byteNamnLängd, 0);
+                byte[] byteNamn = new byte[namnLängd];
+                await nyklient.Klient.GetStream().ReadAsync(byteNamn, 0, namnLängd);
                 nyklient.Namn = Encoding.Unicode.GetString(byteNamn);
                 nyklient.ÄndraID(klienter.Count);
 

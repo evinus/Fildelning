@@ -37,3 +37,9 @@ C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\obj\Debug\Nätver
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.Klient.resources
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.Properties.Resources.resources
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.csproj.GenerateResource.Cache
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\bin\Debug\NätverksKlient.exe
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\bin\Debug\NätverksKlient.pdb
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.csprojResolveAssemblyReference.cache
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.Klient.resources
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.Properties.Resources.resources
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksKlient\obj\Debug\NätverksKlient.csproj.GenerateResource.Cache

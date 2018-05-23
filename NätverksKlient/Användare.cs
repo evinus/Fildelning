@@ -20,13 +20,18 @@ public static class Användare
     public static string AnvändarNamn { get; set; }
     public static string Meddelande { get; set; }
     public static string NamnMeddelande { get; set; }
-    public static int TypTal { get; set; }
+    private static int typTal = 0;
+    public static int TypTal
+    {
+        get { return typTal; }
+        set { typTal = value; }
+    }
     public static int FilStorlek { get; set; }
     public static string FilNamn { get; set; }
 
     static List<AnvändarKlienter> klienter = new List<AnvändarKlienter>();
 
-    public static async void Connect(string adress, int port, string namn)
+    public static async Task Connect(string adress, int port, string namn)
     {
         AnvändarNamn = namn;
         byte[] _namn = Encoding.Unicode.GetBytes(AnvändarNamn);
@@ -34,7 +39,9 @@ public static class Användare
         try
         {
             await Klient.ConnectAsync(Adress, port);
-            await Klient.GetStream().WriteAsync(_namn, 0, 8);
+            int namnlängd = _namn.Length;
+            await Klient.GetStream().WriteAsync(BitConverter.GetBytes(namnlängd), 0, 4);
+            await Klient.GetStream().WriteAsync(_namn, 0, namnlängd);
             
         }
         catch (Exception error)
@@ -44,7 +51,7 @@ public static class Användare
         }
     }
 
-    public static async void Lyssna()
+    public static async Task Lyssna()
     {
         try
         {
@@ -59,7 +66,7 @@ public static class Användare
         { }
     }
    
-    public static async void TaEmotMeddelande()
+    public static async Task TaEmotMeddelande()
     {
         try
         {
@@ -72,7 +79,7 @@ public static class Användare
         catch (Exception error)
         { Console.WriteLine(error.Message); }
     }
-    public static async void TaEmotFildata(byte[] filbuffer)
+    public static async Task TaEmotFildata(byte[] filbuffer)
     {
         byte[] filnamn = new byte[10];
         byte[] filstorlek = new byte[4];
@@ -104,7 +111,7 @@ public static class Användare
         catch(Exception error) { Console.WriteLine(error.Message); }
     }
 
-    public static async void TaEmotFil(byte[] filbuffer, int filstorlek)
+    public static async Task TaEmotFil(byte[] filbuffer, int filstorlek)
     {
         try
         {
@@ -121,7 +128,7 @@ public static class Användare
         catch(Exception error)
         { Console.WriteLine(error.Message); }
     }
-    public static async void Skickameddelande(string meddelande)
+    public static async Task Skickameddelande(string meddelande)
     {
         try
         {
@@ -147,7 +154,7 @@ public static class Användare
     /// <param name="namn">namnet på filen i bytes.</param>
     /// <param name="storlek">Storlek i bytes på filen</param>
     /// <param name="fildata">Sjäva filens data i byte</param>
-    public static async void SkickaFil( byte[] namn, byte[] storlek, byte[] fildata)
+    public static async Task SkickaFil( byte[] namn, byte[] storlek, byte[] fildata)
     {
         
         if(Klient.Connected)
@@ -170,7 +177,7 @@ public static class Användare
         }
     }
 
-    public static async void NyAnvändare( )
+    public static async Task NyAnvändare( )
     {
         int namnLängd;
         byte[] namnbyteLängd = new byte[4];

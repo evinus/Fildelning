@@ -38,3 +38,9 @@ C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\obj\Debug\
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.Properties.Resources.resources
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.Server.resources
 C:\Users\tenol_000\Documents\GitHub\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.csproj.GenerateResource.Cache
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksProgramServer\bin\Debug\NätverksProgramServer.exe
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksProgramServer\bin\Debug\NätverksProgramServer.pdb
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.csprojResolveAssemblyReference.cache
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.Properties.Resources.resources
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.Server.resources
+F:\Users\Daniel\Dokument\Visual Studio 2015\Projects\övning  parse\NätverksProgramServer\Fildelning\NätverksProgramServer\obj\Debug\NätverksProgramServer.csproj.GenerateResource.Cache

@@ -28,27 +28,28 @@ namespace NätverksKlient
             Användare.Klient.NoDelay = false;
         }
        
-        public void Connect()
+        public async Task Connect()
         {
             //IPAddress adress = IPAddress.Parse(tbxIP.Text);
             
             try
             {
-                Användare.Connect(tbxIP.Text, int.Parse(tbxport.Text), tbxNamn.Text);
+                await Användare.Connect(tbxIP.Text, int.Parse(tbxport.Text), tbxNamn.Text);
             }
             catch (Exception error)
             {
                 MessageBox.Show(error.Message, "Kunde inte ansluta"); return;
             }
-            startalyssna();
+            if(Användare.Klient.Connected)
+                startalyssna();
             
             btnConnect.Enabled = false;
             btnSendFile.Enabled = true;
             btnTaEmot.Enabled = true;
         }
-        private void startalyssna()
+        private async Task startalyssna()
         {
-            Användare.Lyssna();
+            await Användare.Lyssna();
             if(Användare.TypTal ==1)
             {
                 byte[] buffer = null;
@@ -225,7 +226,7 @@ namespace NätverksKlient
         private void btnTaEmot_Click(object sender, EventArgs e)
         {
             btnTaEmot.Enabled = false;
-            Användare.Lyssna();
+            //Användare.Lyssna();
             //Lyssna(); 
         }
 
