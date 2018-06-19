@@ -54,12 +54,12 @@ namespace NätverksProgramServer
             }
             catch(Exception error)
             {
-                MessageBox.Show( "\r\n"+ error.Message +" kunde inte lysssna", this.Text );
+                MessageBox.Show("\r\n"+ error.Message +" kunde inte lysssna", this.Text );
                 return;
             }
             StartaLyssna();
         }
-        public async void Lyssna(AnvändarKlienter nyklient)
+        public async Task Lyssna(AnvändarKlienter nyklient)
         {
             byte[] buffer;
             byte[] bytefilstorlek = new byte[4];
