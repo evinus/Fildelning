@@ -53,7 +53,7 @@ namespace NätverksKlient
             if(Användare.TypTal ==1)
             {
                 byte[] buffer = null;
-                Användare.TaEmotFildata(buffer);
+                await Användare.TaEmotFildata(buffer);
 
 
                 if (buffer != null)
@@ -67,12 +67,12 @@ namespace NätverksKlient
             }
             if(Användare.TypTal == 2)
             {
-                Användare.TaEmotMeddelande();
+               await Användare.TaEmotMeddelande();
 
             }
             if(Användare.TypTal == 3)
             {
-                Användare.NyAnvändare();
+                await Användare.NyAnvändare();
                 UppdatareAnvändare();
             }
             startalyssna();
@@ -197,7 +197,7 @@ namespace NätverksKlient
                 Connect();
         }
 
-        private void btnSendFile_Click(object sender, EventArgs e)
+        private async void btnSendFile_Click(object sender, EventArgs e)
         {
             // StartSending();
 
@@ -205,12 +205,13 @@ namespace NätverksKlient
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                btnSendFile.Enabled = false;
                 byte[] filData =File.ReadAllBytes(openFileDialog1.FileName);
                 byte[] tal = BitConverter.GetBytes(1);
                 byte[] storlek = BitConverter.GetBytes(filData.Length);
                 byte[] namn = Encoding.Unicode.GetBytes(openFileDialog1.FileName);
-                Användare.SkickaFil(namn, storlek, filData);
-                    
+                await Användare.SkickaFil(namn, storlek, filData);
+                btnSendFile.Enabled = true;
 
             }
             
@@ -230,10 +231,10 @@ namespace NätverksKlient
             //Lyssna(); 
         }
 
-        private void btnSkicka_Click(object sender, EventArgs e)
+        private async void btnSkicka_Click(object sender, EventArgs e)
         {
             //Skickameddelande(tbxMeddelande.Text);
-            Användare.Skickameddelande(tbxMeddelande.Text);
+            await Användare.Skickameddelande(tbxMeddelande.Text);
             tbxMeddelande.Text = "";
         }
 

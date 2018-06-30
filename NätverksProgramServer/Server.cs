@@ -29,7 +29,7 @@ namespace NätverksProgramServer
             lyssnare.Start();
             StartaLyssna();
         }
-        public async void StartaLyssna()
+        public async Task StartaLyssna()
         {
             try
             {
@@ -100,7 +100,7 @@ namespace NätverksProgramServer
                     //SKickar ut filen till alla klienter
                     for (int i = 0; i < klienter.Count; i++)
                     {
-                        SkickaFil(buffer, bytefilstorlek, namn, i);
+                       await SkickaFil(buffer, bytefilstorlek, TalfilStorlek, namn, i);
                         
                         //if (k == client) continue;
                         //await klienter[i].Klient.GetStream().WriteAsync(tal, 0, 4);
@@ -140,7 +140,7 @@ namespace NätverksProgramServer
             Lyssna(nyklient);
         }
 
-        private async void SkickaFil(byte[] buffer,byte[] filstorlek, byte[] namn, int ID)
+        private async Task SkickaFil(byte[] buffer,byte[] filstorlek, int talFilStorlek, byte[] namn, int ID)
         {
             byte[] tal = BitConverter.GetBytes(1);
             int namnL = namn.Length;
@@ -159,13 +159,13 @@ namespace NätverksProgramServer
                 bool bsvar = BitConverter.ToBoolean(svar, 0);
                 if (bsvar)
                 {
-                    int filtal = BitConverter.ToInt32(filstorlek, 0);
-                    await klienter[ID].Klient.GetStream().WriteAsync(buffer, 0, filtal);
+                    //int filtal = BitConverter.ToInt32(filstorlek, 0);
+                    await klienter[ID].Klient.GetStream().WriteAsync(buffer, 0, talFilStorlek);
                 }
             }
             catch(Exception error) { tbxLogg.AppendText("\r\n" + error.Message); }
         }
-        private async void SkickaNyAnvändare(string namn, int id)
+        private async Task SkickaNyAnvändare(string namn, int id)
         {
             byte[] bnamn =Encoding.Unicode.GetBytes(namn);  
             //int namntal = Encoding.Unicode.GetByteCount(namn);

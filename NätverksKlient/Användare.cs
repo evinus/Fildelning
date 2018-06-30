@@ -99,7 +99,7 @@ public static class Användare
                 bool boolsvar = true;
                 svar = BitConverter.GetBytes(boolsvar);
                 await Klient.GetStream().WriteAsync(svar, 0, 1);
-                TaEmotFil(filbuffer, FilStorlek);
+                await TaEmotFil(filbuffer, FilStorlek);
             }
             else
             {

@@ -51,44 +51,49 @@
             // 
             // tbxIP
             // 
-            this.tbxIP.Location = new System.Drawing.Point(87, 45);
+            this.tbxIP.Location = new System.Drawing.Point(174, 87);
+            this.tbxIP.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxIP.Name = "tbxIP";
-            this.tbxIP.Size = new System.Drawing.Size(100, 20);
+            this.tbxIP.Size = new System.Drawing.Size(196, 31);
             this.tbxIP.TabIndex = 0;
             this.tbxIP.Text = "127.0.0.1";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 51);
+            this.label1.Location = new System.Drawing.Point(26, 98);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 13);
+            this.label1.Size = new System.Drawing.Size(31, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "IP";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 78);
+            this.label2.Location = new System.Drawing.Point(26, 150);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(51, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Port";
             // 
             // tbxport
             // 
             this.tbxport.Enabled = false;
-            this.tbxport.Location = new System.Drawing.Point(87, 78);
+            this.tbxport.Location = new System.Drawing.Point(174, 150);
+            this.tbxport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxport.Name = "tbxport";
-            this.tbxport.Size = new System.Drawing.Size(100, 20);
+            this.tbxport.Size = new System.Drawing.Size(196, 31);
             this.tbxport.TabIndex = 3;
             this.tbxport.Text = "12345";
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(13, 126);
+            this.btnConnect.Location = new System.Drawing.Point(26, 242);
+            this.btnConnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(103, 41);
+            this.btnConnect.Size = new System.Drawing.Size(206, 79);
             this.btnConnect.TabIndex = 4;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -96,9 +101,10 @@
             // 
             // btnSendFile
             // 
-            this.btnSendFile.Location = new System.Drawing.Point(156, 126);
+            this.btnSendFile.Location = new System.Drawing.Point(312, 242);
+            this.btnSendFile.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSendFile.Name = "btnSendFile";
-            this.btnSendFile.Size = new System.Drawing.Size(116, 41);
+            this.btnSendFile.Size = new System.Drawing.Size(232, 79);
             this.btnSendFile.TabIndex = 5;
             this.btnSendFile.Text = "Send File";
             this.btnSendFile.UseVisualStyleBackColor = true;
@@ -107,9 +113,10 @@
             // btnTaEmot
             // 
             this.btnTaEmot.Enabled = false;
-            this.btnTaEmot.Location = new System.Drawing.Point(13, 211);
+            this.btnTaEmot.Location = new System.Drawing.Point(26, 406);
+            this.btnTaEmot.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnTaEmot.Name = "btnTaEmot";
-            this.btnTaEmot.Size = new System.Drawing.Size(103, 36);
+            this.btnTaEmot.Size = new System.Drawing.Size(206, 69);
             this.btnTaEmot.TabIndex = 6;
             this.btnTaEmot.Text = "Ta Emot";
             this.btnTaEmot.UseVisualStyleBackColor = true;
@@ -117,24 +124,27 @@
             // 
             // tbxLogg
             // 
-            this.tbxLogg.Location = new System.Drawing.Point(397, 13);
+            this.tbxLogg.Location = new System.Drawing.Point(794, 25);
+            this.tbxLogg.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxLogg.Multiline = true;
             this.tbxLogg.Name = "tbxLogg";
-            this.tbxLogg.Size = new System.Drawing.Size(331, 133);
+            this.tbxLogg.Size = new System.Drawing.Size(658, 252);
             this.tbxLogg.TabIndex = 7;
             // 
             // tbxMeddelande
             // 
-            this.tbxMeddelande.Location = new System.Drawing.Point(397, 189);
+            this.tbxMeddelande.Location = new System.Drawing.Point(794, 363);
+            this.tbxMeddelande.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxMeddelande.Name = "tbxMeddelande";
-            this.tbxMeddelande.Size = new System.Drawing.Size(248, 20);
+            this.tbxMeddelande.Size = new System.Drawing.Size(492, 31);
             this.tbxMeddelande.TabIndex = 8;
             // 
             // btnSkicka
             // 
-            this.btnSkicka.Location = new System.Drawing.Point(652, 189);
+            this.btnSkicka.Location = new System.Drawing.Point(1304, 363);
+            this.btnSkicka.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSkicka.Name = "btnSkicka";
-            this.btnSkicka.Size = new System.Drawing.Size(76, 58);
+            this.btnSkicka.Size = new System.Drawing.Size(152, 112);
             this.btnSkicka.TabIndex = 9;
             this.btnSkicka.Text = "Skicka";
             this.btnSkicka.UseVisualStyleBackColor = true;
@@ -142,35 +152,40 @@
             // 
             // tbxNamn
             // 
-            this.tbxNamn.Location = new System.Drawing.Point(266, 44);
+            this.tbxNamn.Location = new System.Drawing.Point(532, 85);
+            this.tbxNamn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbxNamn.Name = "tbxNamn";
-            this.tbxNamn.Size = new System.Drawing.Size(100, 20);
+            this.tbxNamn.Size = new System.Drawing.Size(196, 31);
             this.tbxNamn.TabIndex = 10;
+            this.tbxNamn.Text = "Daniel";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(206, 44);
+            this.label3.Location = new System.Drawing.Point(412, 85);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(68, 25);
             this.label3.TabIndex = 11;
             this.label3.Text = "Namn";
             // 
             // lbxAnvändare
             // 
             this.lbxAnvändare.FormattingEnabled = true;
-            this.lbxAnvändare.Location = new System.Drawing.Point(747, 13);
+            this.lbxAnvändare.ItemHeight = 25;
+            this.lbxAnvändare.Location = new System.Drawing.Point(1494, 25);
+            this.lbxAnvändare.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.lbxAnvändare.Name = "lbxAnvändare";
-            this.lbxAnvändare.Size = new System.Drawing.Size(123, 147);
+            this.lbxAnvändare.Size = new System.Drawing.Size(242, 279);
             this.lbxAnvändare.TabIndex = 12;
             this.lbxAnvändare.SelectedIndexChanged += new System.EventHandler(this.lbxAnvändare_SelectedIndexChanged);
             // 
             // Klient
             // 
             this.AcceptButton = this.btnSkicka;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 305);
+            this.ClientSize = new System.Drawing.Size(1816, 587);
             this.Controls.Add(this.lbxAnvändare);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbxNamn);
@@ -184,6 +199,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxIP);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Klient";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Klient_FormClosing);
